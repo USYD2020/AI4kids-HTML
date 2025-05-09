@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI4Kids - 未来创造者的人工智能启蒙课 by Jeff</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Swiper JS for Carousel -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        :root {
+            --primary: #4A55A2; /* 深蓝紫色，更沉稳 */
+            --primary-light: #7886CB;
+            --primary-dark: #3A4278;
+            --primary-bg: #F0F2F9;
+
+            --secondary: #F9A826; /* 亮黄色，作为辅助和点缀 */
+            --secondary-light: #FBC02D;
+            --secondary-dark: #F57F17;
+            --secondary-bg: #FFF8E1;
+
+            --accent: #D81B60; /* 强调色 - 玫红色 */
+            --accent-light: #EC407A;
+            --accent-dark: #AD1457;
+            --accent-bg: #FCE4EC;
+
+            --text-dark: #1A202C;   /* 更深的文字颜色 */
+            --text-light: #F7FAFC;
+            --text-muted: #718096;
+            --text-muted-dark: #A0AEC0;
+
+            --bg-light: #FFFFFF; /* 纯白背景，更像杂志 */
+            --bg-dark: #171923;
+            --card-light: #FFFFFF;
+            --card-dark: #2D3748; /* 卡片深色背景 */
+
+            --border-light: #E2E8F0;
+            --border-dark: #4A5568;
+
+            --border-radius: 10px; /* 稍小圆角，更硬朗 */
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 20px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 35px -10px rgba(0, 0, 0, 0.1), 0 8px 15px -8px rgba(0, 0, 0, 0.06);
+
+
+            --font-sans: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-serif: 'Noto Serif SC', Georgia, Cambria, "Times New Roman", Times, serif;
+
+            --transition-cubic: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            line-height: 1.8;
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: var(--transition-cubic);
+        }
+
+        .dark body { background-color: var(--bg-dark); color: var(--text-light); }
+        .dark .bg-card { background-color: var(--card-dark); }
+        .bg-card { background-color: var(--card-light); }
+        .dark .text-primary { color: var(--primary-light); }
+        .text-primary { color: var(--primary); }
+        .bg-primary-soft { background-color: var(--primary-bg); }
+        .dark .bg-primary-soft { background-color: rgba(120, 134, 203, 0.1); }
+
+
+        .dark .text-secondary { color: var(--secondary-light); }
+        .text-secondary { color: var(--secondary); }
+        .dark .text-accent { color: var(--accent-light); }
+        .text-accent { color: var(--accent); }
+        .dark .text-muted { color: var(--text-muted-dark); }
+        .text-muted { color: var(--text-muted); }
+        .dark .border-strong { border-color: var(--border-dark); }
+        .border-strong { border-color: var(--border-light); }
+
+        .font-display { font-family: var(--font-serif); font-weight: 700; letter-spacing: -0.01em; }
+        .font-title-sans { font-family: var(--font-sans); font-weight: 900; /* text-transform: uppercase; */ letter-spacing: 0.01em; }
+
+        .interactive-card {
+            transition: var(--transition-cubic);
+            box-shadow: var(--shadow-md);
+            border-radius: var(--border-radius-lg);
+        }
+        .interactive-card:hover {
+            transform: translateY(-10px) scale(1.015); /* 悬浮效果微调 */
+            box-shadow: var(--shadow-xl);
+        }
+
+        .interactive-button { transition: var(--transition-cubic); box-shadow: var(--shadow-sm); }
+        .interactive-button:hover { transform: translateY(-3px) scale(1.03); box-shadow: var(--shadow-lg); }
+        .interactive-button.bg-primary:hover { background-color: var(--primary-dark); }
+        .dark .interactive-button.bg-primary:hover { background-color: var(--primary-light); color: var(--text-dark); }
+
+        .fade-in-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Hero Section 优化空间 */
+        .hero {
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .dark .hero {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .hero-content-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-text-column {
+            grid-column: span 12 / span 12;
+            text-align: center;
+        }
+        .hero-image-column {
+            grid-column: span 12 / span 12;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) { /* md断点 */
+            .hero { padding: 8rem 0; }
+            .hero-content-grid { gap: 3rem; }
+            .hero-text-column {
+                grid-column: span 7 / span 7;
+                text-align: left;
+            }
+            .hero-image-column {
+                grid-column: span 5 / span 5;
+                margin-top: 0;
+                justify-content: flex-end;
+            }
+        }
+         @media (min-width: 1024px) { /* lg断点 */
+            .hero-text-column {
+                grid-column: span 6 / span 6;
+                 padding-right: 2rem;
+            }
+            .hero-image-column {
+                grid-column: span 6 / span 6;
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.25rem); /* 调整标题大小以适应不同屏幕 */
+            font-family: var(--font-display); font-weight: 700;
+            margin-bottom: 1.25rem; line-height: 1.15; letter-spacing: -0.025em;
+            color: var(--text-dark);
+        }
+        .dark .hero-title { color: var(--text-light); }
+        .hero-title .highlight-ai { /* 为AI字母创建特定类 */
+            color: var(--primary);
+            /* 可选：如果需要微调字母间距或单个字母位置 */
+            /* letter-spacing: -0.05em; /* 尝试缩小AI之间的间距 */
+        }
+        /* .hero-title .highlight-ai .char-a { display:inline-block; margin-right: -0.08em; } */ /* 示例：微调A和I的间距 */
+        .dark .hero-title .highlight-ai { color: var(--primary-light); }
+
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-family: var(--font-sans);
+            line-height: 1.7;
+            max-width: 600px;
+        }
+        .dark .hero-subtitle { color: var(--text-muted-dark); }
+
+        .hero-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-xl);
+            object-fit: cover;
+            border: 3px solid var(--card-light);
+        }
+        .dark .hero-img { border-color: var(--card-dark); }
+
+
+        .cta-button {
+            display: inline-flex; align-items: center;
+            background-color: var(--primary); color: white;
+            font-weight: 600; font-size: 1rem; padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius); text-decoration: none;
+            box-shadow: var(--shadow-sm); transition: var(--transition-cubic);
+            border: none; cursor: pointer;
+        }
+        .cta-button i { margin-left: 0.6rem; transition: transform 0.3s ease; }
+        .cta-button:hover {
+            box-shadow: var(--shadow-lg); transform: translateY(-2px);
+            background-color: var(--primary-dark);
+        }
+        .dark .cta-button { background-color: var(--primary-light); color: var(--text-dark); }
+        .dark .cta-button:hover { background-color: var(--primary); color:white; }
+        .cta-button:hover i { transform: translateX(3px); }
+
+
+        /* Section Header */
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem); font-family: var(--font-display);
+            font-weight: 700; color: var(--text-dark); margin-bottom: 1rem;
+            position: relative; display: inline-block; letter-spacing: -0.01em;
+        }
+        .dark .section-title { color: var(--text-light); }
+        .section-title::after {
+            content: ''; position: absolute; left: 50%; bottom: -0.5rem; width: 60px; height: 3px;
+            background: var(--secondary);
+            transform: translateX(-50%); border-radius: 2px; opacity: 0.9;
+        }
+        .section-description { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.8; }
+
+        /* 课程总览 - 简洁卡片 */
+        .overview-cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .overview-card {
+            background-color: var(--card-light); border-radius: var(--border-radius-lg); padding: 2rem;
+            box-shadow: var(--shadow-md); transition: var(--transition-cubic);
+            border-left: 4px solid var(--secondary);
+        }
+        .dark .overview-card { background-color: var(--card-dark); border-left-color: var(--secondary-light); }
+        .overview-card:hover { box-shadow: var(--shadow-xl); transform: translateY(-8px) scale(1.01); border-left-color: var(--accent);}
+        .dark .overview-card:hover { border-left-color: var(--accent-light); }
+
+        .overview-card-icon {
+            width: 50px; height: 50px; background-color: var(--secondary-bg); color: var(--secondary-dark);
+            border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin-bottom: 1.25rem;
+        }
+        .dark .overview-card-icon { background-color: rgba(var(--rgb-secondary-light, 251, 192, 45), 0.15); color: var(--secondary-light); } /* 使用变量或硬编码RGB */
+        .overview-card-title { font-size: 1.25rem; font-family: var(--font-sans); font-weight: 700; margin-bottom: 0.6rem; color: var(--text-dark); }
+        .dark .overview-card-title { color: var(--text-light); }
+        .overview-card-description { color: var(--text-muted); font-size: 0.9rem; line-height: 1.65; }
+
+
+        /* 课程大纲滑动容器 */
+        .syllabus-swiper-container { width: 100%; padding-top: 2.5rem; padding-bottom: 4.5rem; position: relative; margin-top: 1rem;}
+        .swiper.syllabus-swiper-container { overflow: visible; }
+        .swiper-slide.syllabus-slide {
+            width: 90%;
+            max-width: 460px;
+            min-height: 500px;
+            height: auto; display: flex; justify-content: center; align-items: stretch;
+            padding: 0 10px;
+            box-sizing: border-box;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            opacity: 0.55;
+            transform: scale(0.88);
+            transition: opacity 0.45s ease, transform 0.45s ease;
+        }
+        .swiper-slide-active.syllabus-slide {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 1;
+        }
+        .swiper-slide-next.syllabus-slide, .swiper-slide-prev.syllabus-slide {
+            opacity: 0.75;
+            transform: scale(0.92);
+        }
+
+
+        .syllabus-card {
+            width: 100%; height: 100%; display: flex; flex-direction: column;
+            padding: 2rem 1.75rem;
+            border-radius: var(--border-radius-xl);
+            background-color: var(--card-light);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-cubic);
+            border: 1px solid var(--border-light);
+        }
+        .dark .syllabus-card { background-color: var(--card-dark); border-color: var(--border-dark); }
+        .swiper-slide-active .syllabus-card {
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+        .dark .swiper-slide-active .syllabus-card { border-color: var(--primary-light); }
+
+        .syllabus-card .module-header-flex { display: flex; align-items: flex-start; margin-bottom: 1.5rem; }
+        .syllabus-card .module-number-badge {
+            flex-shrink: 0; width: 52px; height: 52px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white; font-size: 1.6rem; font-weight: 900; font-family: var(--font-title-sans);
+            border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1); margin-right: 1rem;
+            transform: rotate(-4deg);
+        }
+        .syllabus-card .module-title-group h3 { font-size: 1.6rem; font-weight: 700; font-family: var(--font-serif); line-height: 1.3; color: var(--text-dark);}
+        .dark .syllabus-card .module-title-group h3 { color: var(--text-light); }
+        .syllabus-card .module-title-group .module-subtitle-text { font-size: 0.95rem; color: var(--primary); font-weight: 500; margin-top:0.15rem;}
+        .dark .syllabus-card .module-title-group .module-subtitle-text { color: var(--primary-light); }
+
+        .syllabus-card .module-core-goal { font-weight: 500; font-size: 1rem; margin-bottom: 1.25rem; color: var(--secondary-dark); padding: 0.5rem 0.75rem; border-left: 4px solid var(--secondary); background-color: var(--secondary-bg); border-radius: 0 var(--border-radius) var(--border-radius) 0;}
+        .dark .syllabus-card .module-core-goal { color: var(--secondary-light); border-left-color: var(--secondary-light); background-color: rgba(251, 192, 45, 0.1); } /* 使用 secondary 的RGB值 */
+        .syllabus-card .module-core-goal i { margin-right: 0.6rem; }
+
+        .syllabus-card .module-section-title {
+            font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;
+            margin-top: 1.25rem; margin-bottom: 0.6rem; color: var(--text-muted);
+            padding-bottom: 0.3rem; display: flex; align-items: center;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .dark .syllabus-card .module-section-title { border-bottom-color: var(--border-dark); }
+        .syllabus-card .module-section-title i { margin-right: 0.5rem; color: var(--accent); font-size: 1em;}
+        .dark .syllabus-card .module-section-title i { color: var(--accent-light); }
+
+        .syllabus-card ul { list-style-type: none; padding-left: 0; space-y: 0.35rem; font-size: 0.9rem; line-height: 1.65; color: var(--text-muted); }
+        .syllabus-card ul li { position: relative; padding-left: 1.4rem; }
+        .syllabus-card ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free"; font-weight: 900;
+            position: absolute; left: 0; top: 0.2em;
+            font-size: 0.8rem; color: var(--primary);
+        }
+        .dark .syllabus-card ul li::before { color: var(--primary-light); }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--primary) !important;
+            background-color: var(--card-light);
+            border-radius: 50%; width: 48px !important; height: 48px !important;
+            box-shadow: var(--shadow-lg); top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid var(--border-light);
+        }
+        .dark .swiper-button-next, .dark .swiper-button-prev { color: var(--primary-light) !important; background-color: var(--card-dark); border-color: var(--border-dark); }
+        .swiper-button-next::after, .swiper-button-prev::after { font-size: 1.3rem !important; }
+        .swiper-pagination-bullet { background-color: var(--border-light); opacity:1; width:10px; height:10px; transition: var(--transition-cubic);}
+        .dark .swiper-pagination-bullet { background-color: var(--border-dark); }
+        .swiper-pagination-bullet-active { background-color: var(--primary) !important; transform: scale(1.25); }
+        .dark .swiper-pagination-bullet-active { background-color: var(--primary-light) !important; }
+        .swiper-pagination { bottom: 8px !important; }
+
+        .drop-cap::first-letter {
+            font-size: 5em; font-weight: 700; float: left; line-height: 0.65;
+            margin: 0.15em 0.08em -0.1em 0;
+            color: var(--primary); font-family: var(--font-serif);
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.03);
+        }
+        .dark .drop-cap::first-letter { color: var(--primary-light); }
+
+        .footer-magazine {
+            background-color: var(--text-dark);
+            color: rgba(255,255,255,0.75);
+            padding: 6rem 0 3.5rem;
+            font-family: var(--font-serif);
+            border-top: 5px solid var(--primary);
+        }
+        .dark .footer-magazine { background-color: #12141A; border-top-color: var(--primary-light); }
+        .footer-magazine .footer-logo-text { font-family: var(--font-title-sans); font-size: 2.25rem; color: white; font-weight:900; }
+        .footer-magazine .footer-logo-icon { color: var(--primary-light); margin-right: 0.8rem; font-size: 2.5rem;}
+        .footer-magazine h4 { font-family: var(--font-sans); font-weight: 600; color: white; margin-bottom: 1.5rem; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.9;}
+        .footer-magazine a { color: rgba(255,255,255,0.75); transition: color 0.3s ease, text-decoration 0.3s ease; text-decoration: none;}
+        .footer-magazine a:hover { color: var(--primary-light); text-decoration: underline; }
+        .footer-magazine .social-icon-link { font-size: 1.6rem; margin: 0 0.8rem; }
+        .footer-magazine .copyright-text { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin-top: 3.5rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2.5rem;}
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 模式切换按钮 -->
+    <button id="theme-toggle" aria-label="切换深色/浅色模式" class="fixed bottom-8 right-8 z-50 p-3.5 rounded-full shadow-xl interactive-button bg-primary text-white dark:bg-primary-light dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-bg-dark">
+        <i id="theme-toggle-icon" class="fas fa-moon text-2xl"></i>
+    </button>
+
+    <!-- 导航栏 -->
+    <nav class="sticky top-0 z-40 w-full backdrop-blur-xl flex-none transition-colors duration-500 border-b border-strong bg-card/85 dark:bg-card-dark/85">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex items-center text-3xl font-bold font-title-sans text-primary group">
+                    <i class="fas fa-brain mr-2.5 text-4xl transform transition-transform duration-300 group-hover:rotate-[12deg] group-hover:scale-110"></i> AI4Kids
+                </a>
+                <div class="hidden md:flex items-center space-x-2 lg:space-x-3">
+                    <a href="#overview-section" class="px-3 py-2 lg:px-4 lg:py-2.5 rounded-lg text-sm font-semibold text-muted hover:text-primary hover:bg-primary-soft dark:hover:bg-primary-soft transition-all duration-200">课程总览</a>
+                    <a href="#syllabus-section" class="px-3 py-2 lg:px-4 lg:py-2.5 rounded-lg text-sm font-semibold text-muted hover:text-primary hover:bg-primary-soft dark:hover:bg-primary-soft transition-all duration-200">课程模块</a>
+                    <a href="#features" class="px-3 py-2 lg:px-4 lg:py-2.5 rounded-lg text-sm font-semibold text-muted hover:text-primary hover:bg-primary-soft dark:hover:bg-primary-soft transition-all duration-200">课程特色</a>
+                    <a href="#reading" class="px-3 py-2 lg:px-4 lg:py-2.5 rounded-lg text-sm font-semibold text-muted hover:text-primary hover:bg-primary-soft dark:hover:bg-primary-soft transition-all duration-200">延伸阅读</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" aria-label="主菜单" class="p-2.5 rounded-lg text-muted hover:text-primary hover:bg-primary-soft dark:hover:bg-primary-soft focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-card shadow-lg py-1 border-t border-strong">
+            <a href="#overview-section" class="block px-4 py-3 text-base font-medium text-muted hover:text-primary hover:bg-primary-soft dark:hover:bg-primary-soft transition-colors">课程总览</a>
+            <a href="#syllabus-section" class="block px-4 py-3 text-base font-medium text-muted hover:text-primary hover:bg-primary-soft dark:hover:bg-primary-soft transition-colors">课程模块</a>
+            <a href="#features" class="block px-4 py-3 text-base font-medium text-muted hover:text-primary hover:bg-primary-soft dark:hover:bg-primary-soft transition-colors">课程特色</a>
+            <a href="#reading" class="block px-4 py-3 text-base font-medium text-muted hover:text-primary hover:bg-primary-soft dark:hover:bg-primary-soft transition-colors">延伸阅读</a>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-0 md:pt-0 pb-20 md:pb-28 overflow-hidden">
+        <!-- Hero Section 优化 -->
+        <section class="hero -mx-4 sm:-mx-6 lg:-mx-8 mb-20 md:mb-28 fade-in-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="hero-content-grid">
+                    <div class="hero-text-column">
+                        <h1 class="hero-title drop-cap">
+                            <span class="highlight-ai">AI</span>探险家<span class="text-gray-400 dark:text-gray-600 text-3xl md:text-4xl align-middle">：</span><br class="md:hidden">我的第一个人工智能伙伴
+                        </h1>
+                        <p class="hero-subtitle">
+                            专为六年级好奇小脑袋设计的AI启蒙之旅。我们将一同揭开人工智能的神秘面纱，探索它如何重塑世界，学习与AI协作创新的未来技能，播下科技梦想的种子。
+                        </p>
+                        <a href="#syllabus-section" class="cta-button">
+                            <i class="fas fa-rocket mr-2"></i> 即刻启程探索
+                        </a>
+                    </div>
+                    <div class="hero-image-column">
+                        <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI4Kids - 孩子与科技互动" class="hero-img" loading="eager">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 课程总览 (简洁卡片) -->
+        <section id="overview-section" class="mb-20 md:mb-28 fade-in-section">
+            <div class="section-header">
+                <h2 class="section-title">课程速览</h2>
+                <p class="section-description">AI探险家系列课程，专为六年级小学生量身打造。通过8节精心设计的互动课程，带领孩子们轻松步入人工智能的奇妙殿堂，全面培养未来所需的科技素养与创新思维。</p>
+            </div>
+            <div class="overview-cards-container">
+                <div class="overview-card">
+                    <div class="overview-card-icon"><i class="fas fa-child-reaching"></i></div>
+                    <h3 class="overview-card-title">目标学员</h3>
+                    <p class="overview-card-description">六年级学生（11-12岁），无需编程经验，对新科技充满好奇的小小探索者。</p>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-card-icon"><i class="fas fa-calendar-check"></i></div> 
+                    <h3 class="overview-card-title">课程结构</h3>
+                    <p class="overview-card-description">共8节核心课程，每节40分钟。每周一课，采用精美PPT与生动旁白相结合的线上教学模式。</p>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-card-icon"><i class="fas fa-cogs"></i></div> 
+                    <h3 class="overview-card-title">核心目标</h3>
+                    <p class="overview-card-description">理解AI基本概念，体验趣味应用，思考伦理责任，激发对AI未来的无限畅想与创造潜能。</p>
+                </div>
+            </div>
+
+            <!-- 课程概览表格 - 改进版 -->
+            <div class="mt-16 relative z-10">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 dark:from-primary/10 dark:to-accent/10 rounded-xl -z-10 transform -skew-y-2 scale-105 opacity-70"></div>
+                <h3 class="text-2xl font-bold text-center mb-6 font-display tracking-tight">课程探索图谱</h3>
+                <div class="overflow-x-auto rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 hide-scrollbar">
+                    <table class="min-w-full bg-white dark:bg-gray-800/90 backdrop-blur-sm">
+                        <thead>
+                            <tr class="bg-primary/10 dark:bg-primary/20 border-b-2 border-primary dark:border-primary-light drop-shadow-sm">
+                                <th class="py-4 px-6 text-left font-sans text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider">
+                                    节次
+                                </th>
+                                <th class="py-4 px-6 text-left font-sans text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider">
+                                    主题
+                                </th>
+                                <th class="py-4 px-6 text-left font-sans text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider">
+                                    主要内容
+                                </th>
+                                <th class="py-4 px-6 text-left font-sans text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider">
+                                    互动形式
+                                </th>
+                                <th class="py-4 px-6 text-left font-sans text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider">
+                                    时长
+                                </th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">1</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">AI是什么？</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-lightbulb text-secondary mr-2"></i>
+                                        <span>AI定义、历史、日常应用</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-bg dark:bg-secondary-dark/20 text-secondary-dark dark:text-secondary-light">
+                                        <i class="fas fa-gamepad mr-1"></i>小测验
+                                    </span>
+                                    <span class="ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-bg dark:bg-accent-dark/20 text-accent-dark dark:text-accent-light">
+                                        <i class="fas fa-hands-helping mr-1"></i>实践活动
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">2</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">认识ChatGPT</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-robot text-secondary mr-2"></i>
+                                        <span>ChatGPT功能、原理、演示</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-400">
+                                        <i class="fas fa-magic mr-1"></i>生成内容活动
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">3</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">认识AIGC</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-brain text-secondary mr-2"></i>
+                                        <span>AI优势、伦理问题、人类控制</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-400">
+                                        <i class="fas fa-magic mr-1"></i>生成内容活动
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">4</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">使用AI：提示词工程</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-keyboard text-secondary mr-2"></i>
+                                        <span>提示词技巧、练习</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400">
+                                        <i class="fas fa-edit mr-1"></i>提示词练习
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">5</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">AI在不同领域</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-globe text-secondary mr-2"></i>
+                                        <span>教育、医疗、娱乐应用</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-bg dark:bg-accent-dark/20 text-accent-dark dark:text-accent-light">
+                                        <i class="fas fa-hands-helping mr-1"></i>实践活动
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">6</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">动手体验AI工具</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-tools text-secondary mr-2"></i>
+                                        <span>使用绘图、翻译工具</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-bg dark:bg-accent-dark/20 text-accent-dark dark:text-accent-light">
+                                        <i class="fas fa-hands-helping mr-1"></i>实践活动
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">7</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">AI与社会</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-users text-secondary mr-2"></i>
+                                        <span>工作、隐私、人类监督</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-400">
+                                        <i class="fas fa-comments mr-1"></i>讨论
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">8</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">AI的未来与准备</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-rocket text-secondary mr-2"></i>
+                                        <span>未来发展、学生准备</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-bg dark:bg-secondary-dark/20 text-secondary-dark dark:text-secondary-light">
+                                        <i class="fas fa-gamepad mr-1"></i>总结测验
+                                    </span>
+                                    <span class="ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 dark:bg-indigo-900/20 text-indigo-800 dark:text-indigo-400">
+                                        <i class="fas fa-question-circle mr-1"></i>Q&A
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 课程大纲 - 滑动展示 -->
+        <section id="syllabus-section" class="mb-20 md:mb-28 fade-in-section">
+            <div class="section-header">
+                <h2 class="section-title">探险模块详解</h2>
+                <p class="section-description">
+                    滑动浏览8个精心打磨的课程模块，每一站都是一次新奇的AI发现之旅，专为点燃孩子们的学习火花、拓展认知边界而设计。
+                </p>
+            </div>
+
+            <div class="swiper syllabus-swiper-container relative">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1: 第1节 -->
+                    <div class="swiper-slide syllabus-slide">
+                        <article class="syllabus-card interactive-card">
+                            <div class="module-header-flex">
+                                <span class="module-number-badge">01</span>
+                                <div class="module-title-group">
+                                    <h3>你好，AI！</h3>
+                                    <p class="module-subtitle-text">身边的"隐形"朋友</p>
+                                </div>
+                            </div>
+                            <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 理解AI定义、简史、日常应用及算法初识。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>AI是什么？（"会思考的机器"大揭秘）</li>
+                                        <li>AI简史时光机 (关键里程碑图解)</li>
+                                        <li>算法是什么？(美味菜谱巧比喻)</li>
+                                        <li>生活中的AI伙伴 (智能音箱, 个性推荐)</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>"AI猜猜我是谁"机智抢答</li>
+                                        <li>"我身边的AI"发现与分享会</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Slide 2: 第2节 -->
+                    <div class="swiper-slide syllabus-slide">
+                         <article class="syllabus-card interactive-card">
+                            <div class="module-header-flex">
+                                <span class="module-number-badge">02</span>
+                                <div class="module-title-group">
+                                    <h3>AI的"大脑"如何学习？</h3>
+                                    <p class="module-subtitle-text">数据与机器学习初探</p>
+                                </div>
+                            </div>
+                            <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 理解数据对AI的重要性，初步了解机器学习基本原理。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>AI的"美食"：数据是什么？为何重要？</li>
+                                        <li>AI的学习秘笈：机器学习是什么？</li>
+                                        <li>"训练"AI小宠物 (猫狗识别生动实例)</li>
+                                        <li>初识ChatGPT：聪明的聊天伙伴</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>"喂AI数据大作战"趣味判断</li>
+                                        <li>讨论：如何教AI识别各种水果？</li>
+                                        <li>初试牛刀：向ChatGPT提问</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Slide 3: 第3节 (请您填充详细内容) -->
+                    <div class="swiper-slide syllabus-slide">
+                        <article class="syllabus-card interactive-card">
+                            <div class="module-header-flex">
+                                <span class="module-number-badge">03</span>
+                                <div class="module-title-group">
+                                    <h3>AI界的"大明星"</h3>
+                                    <p class="module-subtitle-text">认识AIGC与Token</p>
+                                </div>
+                            </div>
+                            <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 了解AIGC，认识其生成原理（Token），探讨AI优势。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>AIGC：AI的创造力大爆发！</li>
+                                        <li>AI如何理解语言？Token的"积木"奥秘</li>
+                                        <li>AI的超能力：提高效率，解决难题</li>
+                                        <li>（简述）AIGC能写文章、画画、作曲</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>"AI创意工坊"：如果我是AIGC，我想创造…</li>
+                                        <li>头脑风暴：AIGC还能帮我们做什么？</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Slide 4: 第4节 (请您填充详细内容) -->
+                     <div class="swiper-slide syllabus-slide">
+                        <article class="syllabus-card interactive-card">
+                            <div class="module-header-flex">
+                                <span class="module-number-badge">04</span>
+                                <div class="module-title-group">
+                                    <h3>和AI"好好说话"</h3>
+                                    <p class="module-subtitle-text">神奇的提示词工程</p>
+                                </div>
+                            </div>
+                            <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 理解提示词，掌握写好提示词的基本技巧与四步法。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>Prompt：给AI下达的"魔法指令"</li>
+                                        <li>好指令 vs 坏指令：效果大不同！</li>
+                                        <li>提示词"四步心法"/神奇口诀</li>
+                                        <li>练习：写出让AI惊艳的提示词</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>"提示词改造大师"挑战赛</li>
+                                        <li>小组合作：为班级设计AI宣传语</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Slide 5: 第5节 (请您填充详细内容) -->
+                    <div class="swiper-slide syllabus-slide">
+                        <article class="syllabus-card interactive-card">
+                           <div class="module-header-flex">
+                                <span class="module-number-badge">05</span>
+                                <div class="module-title-group">
+                                    <h3>AI是我的创意小助手</h3>
+                                    <p class="module-subtitle-text">AIGC应用：写作与绘画</p>
+                                </div>
+                            </div>
+                            <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 体验AI在写作和绘画方面的辅助能力，激发创作兴趣。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>AI当"笔杆子"：写故事、诗歌、邮件</li>
+                                        <li>AI当"小画家"：文字变精美图画</li>
+                                        <li>AI绘画工具初体验 (如即梦等)</li>
+                                        <li>AI在教育、医疗、娱乐领域的应用</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>"AI故事接龙"：全班共创奇幻故事</li>
+                                        <li>"AI画廊漫游"：看图说话编故事</li>
+                                        <li>"我的AI画作"：输入关键词，见证奇迹</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Slide 6: 第6节 (请您填充详细内容) -->
+                    <div class="swiper-slide syllabus-slide">
+                        <article class="syllabus-card interactive-card">
+                            <div class="module-header-flex">
+                                <span class="module-number-badge">06</span>
+                                <div class="module-title-group">
+                                    <h3>AI是我的学习好伙伴</h3>
+                                    <p class="module-subtitle-text">知识探索与语言学习</p>
+                                </div>
+                            </div>
+                            <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 了解AI在学习辅助方面的应用，学习利用AI获取知识。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>AI"万事通"：解答百科难题 (秘塔搜索)</li>
+                                        <li>AI辅导作业：检查与思路启发 (正确观念)</li>
+                                        <li>AI语言学习：口语练习 (豆包)、翻译</li>
+                                        <li>安全使用AI学习工具</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>"AI知识挑战赛"：看谁找答案快又准</li>
+                                        <li>"小小翻译官"：中英互译大比拼</li>
+                                        <li>角色扮演："AI小老师"在线答疑</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Slide 7: 第7节 (请您填充详细内容) -->
+                     <div class="swiper-slide syllabus-slide">
+                        <article class="syllabus-card interactive-card">
+                            <div class="module-header-flex">
+                                <span class="module-number-badge">07</span>
+                                <div class="module-title-group">
+                                    <h3>AI的"小烦恼"与责任</h3>
+                                    <p class="module-subtitle-text">伦理与安全同行</p>
+                                </div>
+                            </div>
+                           <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 初步了解AI伦理问题，树立正确使用AI的责任感。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>AI也会犯错吗？(公平性与偏见)</li>
+                                        <li>AI与我的小秘密 (隐私保护)</li>
+                                        <li>AI会让爸爸妈妈失业吗？(就业影响)</li>
+                                        <li>小小数字公民的责任 (辨别信息, 合理使用)</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>情景剧："AI法官"的公正难题</li>
+                                        <li>讨论会："AI帮我作弊了，怎么办？"</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Slide 8: 第8节 -->
+                    <div class="swiper-slide syllabus-slide">
+                        <article class="syllabus-card interactive-card">
+                            <div class="module-header-flex">
+                                <span class="module-number-badge">08</span>
+                                <div class="module-title-group">
+                                    <h3>AI与我们的未来世界</h3>
+                                    <p class="module-subtitle-text">机遇与无限畅想</p>
+                                </div>
+                            </div>
+                            <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 展望AI未来，激发科技好奇与职业畅想，总结课程。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>AGI畅想：当AI拥有"超级大脑"</li>
+                                        <li>AI时代的新酷职业 (提示词工程师等)</li>
+                                        <li>拥抱AI时代：我的行动计划</li>
+                                        <li>AI探险之旅全回顾与证书授予</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>"我的未来AI职业"创意画/小作文</li>
+                                        <li>"AI如何改变我的家乡"畅想会</li>
+                                        <li>课程知识回顾：Kahoot!趣味竞赛</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-prev -left-1 md:-left-3"></div>
+                <div class="swiper-button-next -right-1 md:-right-3"></div>
+            </div>
+        </section>
+
+        <!-- 课程特色 -->
+        <section id="features" class="mb-20 md:mb-28 fade-in-section">
+            <div class="section-header">
+                <h2 class="section-title">课程亮点：不止于AI</h2>
+                <p class="section-description">
+                    我们坚信，好的教育能够点燃孩子内心的火花。AI4Kids 课程独具匠心，旨在提供超乎预期的学习体验，培养面向未来的综合素养。
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                 <div class="p-6 md:p-8 bg-card rounded-xl shadow-lg interactive-card group text-center border-t-4 border-primary dark:border-primary-light">
+                    <div class="inline-block p-4 rounded-full bg-primary-soft text-primary text-3xl mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-8deg]">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold font-sans mb-2">为孩子定制</h3>
+                    <p class="text-muted text-sm leading-relaxed">摒弃复杂术语，用生动比喻和生活实例讲解AI核心概念，确保轻松理解。</p>
+                </div>
+                <div class="p-6 md:p-8 bg-card rounded-xl shadow-lg interactive-card group text-center border-t-4 border-secondary dark:border-secondary-light">
+                    <div class="inline-block p-4 rounded-full bg-secondary-bg text-secondary text-3xl mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[8deg]">
+                        <i class="fas fa-hand-pointer"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold font-sans mb-2">沉浸式互动</h3>
+                    <p class="text-muted text-sm leading-relaxed">精心设计测验、讨论、实践环节，让孩子在玩中学，在学中创，激发参与感。</p>
+                </div>
+                <div class="p-6 md:p-8 bg-card rounded-xl shadow-lg interactive-card group text-center border-t-4 border-accent dark:border-accent-light">
+                    <div class="inline-block p-4 rounded-full bg-accent-bg text-accent text-3xl mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-8deg]">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold font-sans mb-2">洞见未来</h3>
+                    <p class="text-muted text-sm leading-relaxed">不仅科普AI知识，更引导思考AI的深远影响，培养面向未来的视野和适应力。</p>
+                </div>
+                 <div class="p-6 md:p-8 bg-card rounded-xl shadow-lg interactive-card group text-center border-t-4 border-green-500 dark:border-green-400">
+                    <div class="inline-block p-4 rounded-full bg-green-500/10 dark:bg-green-400/20 text-green-500 dark:text-green-400 text-3xl mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[8deg]">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold font-sans mb-2">安全友好</h3>
+                    <p class="text-muted text-sm leading-relaxed">严格筛选教学内容和工具，确保学习过程安全健康，引导树立正确科技伦理观。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 延伸阅读 -->
+        <section id="reading" class="mb-20 md:mb-28 fade-in-section">
+            <div class="section-header">
+                <h2 class="section-title">AI知识加油站</h2>
+                <p class="section-description">
+                    课程之外，这些精选读物与资源将为孩子和家长提供更深入的视角，持续点燃对AI的探索热情，共同成长。
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-book-reader text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i>
+                        <h3 class="text-lg font-semibold font-sans">《人工智能启蒙（儿童版）》</h3>
+                    </div>
+                    <p class="text-xs text-muted mb-2 uppercase tracking-wider">编辑推荐</p>
+                    <p class="text-muted text-sm leading-relaxed flex-grow">选择一本国内优质出版社针对小学生编写的AI科普绘本或读物，例如"东方娃娃·给孩子的AI课"系列等。</p>
+                    <a href="https://search.jd.com/Search?keyword=%E5%84%BF%E7%AB%A5%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">去京东看看 <i class="fas fa-arrow-right text-xs ml-1 transform group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+                <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
+                     <div class="flex items-center mb-3">
+                        <i class="fas fa-lightbulb text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i>
+                        <h3 class="text-lg font-semibold font-sans">《AI·未来》</h3>
+                    </div>
+                    <p class="text-xs text-muted mb-2 uppercase tracking-wider">作者：李开复, 王咏刚</p>
+                    <p class="text-muted text-sm leading-relaxed flex-grow">从产业视角解读AI发展，预测未来趋势，语言通俗易懂，对理解AI的社会影响极具启发性。</p>
+                     <a href="https://item.jd.com/12293857.html" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">去京东看看 <i class="fas fa-arrow-right text-xs ml-1 transform group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+                <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-robot text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i> 
+                        <h3 class="text-lg font-semibold font-sans">《这就是ChatGPT》</h3>
+                    </div>
+                    <p class="text-xs text-muted mb-2 uppercase tracking-wider">作者：斯蒂芬·沃尔夫勒姆</p>
+                    <p class="text-muted text-sm leading-relaxed flex-grow">深入浅出地解释了大型语言模型的工作原理，作者是计算领域的大师，对理解ChatGPT等工具有很大帮助。</p>
+                    <a href="https://item.jd.com/10073096168988.html" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">去京东看看 <i class="fas fa-arrow-right text-xs ml-1 transform group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+                <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
+                     <i class="fas fa-atom text-3xl text-primary mb-4 self-start group-hover:text-accent transition-colors"></i>
+                    <h3 class="text-xl font-semibold font-sans">《终极算法》</h3>
+                    <p class="text-xs text-muted mb-3 uppercase tracking-wider">作者：佩德罗·多明戈斯</p>
+                    <p class="text-muted text-sm leading-relaxed flex-grow">介绍了机器学习的五大流派及其核心思想，一本书带你理解AI"学习"的本质和未来方向。</p>
+                    <a href="https://item.jd.com/12291185.html" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">去京东看看 <i class="fas fa-arrow-right text-xs ml-1 transform group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+                <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-laptop-code text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i> 
+                        <h3 class="text-lg font-semibold font-sans">Code.org - AI 课程</h3>
+                    </div>
+                    <p class="text-xs text-muted mb-2 uppercase tracking-wider">在线互动教程</p>
+                    <p class="text-muted text-sm leading-relaxed flex-grow">Code.org 提供了大量针对K-12学生的编程和AI互动教程，例如 "AI for Oceans"，寓教于乐，非常适合孩子动手体验。</p>
+                    <a href="https://code.org/ai" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">访问网站 <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+                </div>
+                 <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-graduation-cap text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i>
+                        <h3 class="text-lg font-semibold font-sans">Elements of AI</h3>
+                    </div>
+                    <p class="text-xs text-muted mb-2 uppercase tracking-wider">赫尔辛基大学 & Reaktor</p>
+                    <p class="text-muted text-sm leading-relaxed flex-grow">一套广受好评的免费在线AI入门课程，内容优质且易于理解，已被翻译成多国语言，适合大众科普和系统学习。</p>
+                    <a href="https://www.elementsofai.com/" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">访问网站 <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer-magazine">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <a href="#" class="inline-flex items-center mb-6 group">
+                        <i class="footer-logo-icon fas fa-brain"></i>
+                        <span class="footer-logo-text">AI4Kids</span>
+                    </a>
+                    <p class="text-sm leading-relaxed mb-6">我们坚信，每个孩子都拥有改变世界的潜力。AI4Kids 致力于点燃他们对科技的好奇，培养面向未来的核心素养。</p>
+                </div>
+                <div>
+                    <h4>课程导航</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#overview-section">课程总览</a></li>
+                        <li><a href="#syllabus-section">课程模块</a></li>
+                        <li><a href="#features">课程特色</a></li>
+                        <li><a href="#">关于我们 (示例)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>学习资源</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#reading">延伸阅读</a></li>
+                        <li><a href="https://code.org/ai" target="_blank">Code.org AI</a></li>
+                        <li><a href="https://www.elementsofai.com/" target="_blank">Elements of AI</a></li>
+                        <li><a href="#">AI工具箱 (示例)</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4>联系 Jeff</h4>
+                     <div class="flex space-x-5 mb-6">
+                        <a href="https://github.com/USYD2020" target="_blank" aria-label="GitHub" class="social-icon-link"><i class="fab fa-github"></i></a>
+                        <a href="https://mp.weixin.qq.com/s/2IwZPbs0da27t14TrxsrPw?scene=1" target="_blank" aria-label="微信公众号" class="social-icon-link"><i class="fab fa-weixin"></i></a>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 flex-shrink-0 w-5 text-center text-lg text-primary-light"></i>
+                            <a href="mailto:8ai4kids@gmail.com">8ai4kids@gmail.com</a>
+                        </li>
+                         <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 flex-shrink-0 w-5 text-center text-lg text-primary-light"></i>
+                            <span>AI启蒙中心, 智慧未来城</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright-text">
+                课程内容由 Jeff & AI4Kids 课程设计团队创作 • © <span id="currentYearFooter"></span> AI4Kids. 版权所有，慧育未来.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="module">
+        // Swiper initialization for syllabus
+        const syllabusSwiper = new Swiper('.syllabus-swiper-container', {
+            effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 25, // 旋转角度
+                stretch: -20, // 卡片间的拉伸，负值会使卡片更紧凑
+                depth: 150,  // 深度效果
+                modifier: 1, // 效果倍增器
+                slideShadows: false, // 关闭幻灯片阴影，因为我们卡片自带阴影
+            },
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            // loopedSlides: 8, // 确保循环平滑，通常比实际slide数量多一些，或者等于slide数量
+            initialSlide: 0, // 从第一个slide开始
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1.6, // 手机端稍多显示
+                    coverflowEffect: { rotate: 30, stretch: -15, depth: 120, modifier: 1.1,},
+                },
+                768: { // md
+                    slidesPerView: 2.2, // 平板
+                    coverflowEffect: { rotate: 28, stretch: -25, depth: 160, modifier: 1.1,},
+                },
+                1024: { // lg
+                    slidesPerView: 2.8, // 桌面，同时可见更多，Coverflow效果更明显
+                    coverflowEffect: { rotate: 22, stretch: -35, depth: 180, modifier: 1,},
+                }
+            }
+        });
+
+
+        // Theme toggle logic
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+        let currentTheme = localStorage.getItem("theme") || (prefersDarkScheme.matches ? "dark" : "light");
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
+        const currentYearSpans = [document.getElementById('currentYearFooter')];
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function applyTheme(theme) {
+            if (theme === "dark") {
+                document.documentElement.classList.add("dark");
+                themeToggleIcon.classList.remove('fa-moon');
+                themeToggleIcon.classList.add('fa-sun');
+            } else {
+                document.documentElement.classList.remove("dark");
+                themeToggleIcon.classList.remove('fa-sun');
+                themeToggleIcon.classList.add('fa-moon');
+            }
+        }
+
+        applyTheme(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            currentTheme = document.documentElement.classList.toggle('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+            applyTheme(currentTheme);
+        });
+
+        prefersDarkScheme.addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                currentTheme = e.matches ? "dark" : "light";
+                applyTheme(currentTheme);
+            }
+        });
+
+        currentYearSpans.forEach(span => {
+            if (span) span.textContent = new Date().getFullYear();
+        });
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+                mobileMenuButton.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+</body>
+</html>
