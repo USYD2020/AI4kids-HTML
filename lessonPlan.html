@@ -99,9 +99,7 @@
         .interactive-card:hover {
             transform: translateY(-10px) scale(1.015); /* 悬浮效果微调 */
             box-shadow: var(--shadow-xl);
-            /* border: 1px solid var(--primary); */ /* 移除边框，靠阴影强调 */
         }
-        /* .dark .interactive-card:hover { border-color: var(--primary-light); } */
 
         .interactive-button { transition: var(--transition-cubic); box-shadow: var(--shadow-sm); }
         .interactive-button:hover { transform: translateY(-3px) scale(1.03); box-shadow: var(--shadow-lg); }
@@ -113,33 +111,31 @@
 
         /* Hero Section 优化空间 */
         .hero {
-            background-color: var(--primary-bg); /* 浅色背景，更像杂志内页 */
-            /* background: linear-gradient(130deg, var(--primary-bg) 0%, #e0e7ff 100%); */
+            background-color: var(--primary-bg);
             color: var(--text-dark);
-            padding: 6rem 0; /* 调整padding */
+            padding: 6rem 0;
             position: relative;
             overflow: hidden;
         }
         .dark .hero {
-            background-color: var(--bg-dark); /* 深色模式用更深的背景 */
-            /* background: linear-gradient(130deg, var(--bg-dark) 0%, #1e293b 100%); */
+            background-color: var(--bg-dark);
             color: var(--text-light);
         }
 
-        .hero-content-grid { /* 使用Grid布局优化Hero */
+        .hero-content-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             align-items: center;
-            gap: 2rem; /* 列间距 */
+            gap: 2rem;
             position: relative;
             z-index: 2;
         }
         .hero-text-column {
-            grid-column: span 12 / span 12; /* 移动端占满 */
+            grid-column: span 12 / span 12;
             text-align: center;
         }
         .hero-image-column {
-            grid-column: span 12 / span 12; /* 移动端占满 */
+            grid-column: span 12 / span 12;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -150,61 +146,64 @@
             .hero { padding: 8rem 0; }
             .hero-content-grid { gap: 3rem; }
             .hero-text-column {
-                grid-column: span 7 / span 7; /* 文本占7列 */
+                grid-column: span 7 / span 7;
                 text-align: left;
             }
             .hero-image-column {
-                grid-column: span 5 / span 5; /* 图片占5列 */
+                grid-column: span 5 / span 5;
                 margin-top: 0;
-                justify-content: flex-end; /* 图片靠右 */
+                justify-content: flex-end;
             }
         }
          @media (min-width: 1024px) { /* lg断点 */
             .hero-text-column {
-                grid-column: span 6 / span 6; /* 文本占6列，给图片更多空间 */
-                 padding-right: 2rem; /* 文本和图片间距 */
+                grid-column: span 6 / span 6;
+                 padding-right: 2rem;
             }
             .hero-image-column {
                 grid-column: span 6 / span 6;
             }
         }
 
-
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4.5rem); /* 响应式标题大小 */
+            font-size: clamp(2.5rem, 6vw, 4.25rem); /* 调整标题大小以适应不同屏幕 */
             font-family: var(--font-display); font-weight: 700;
             margin-bottom: 1.25rem; line-height: 1.15; letter-spacing: -0.025em;
             color: var(--text-dark);
         }
         .dark .hero-title { color: var(--text-light); }
-        .hero-title .highlight { color: var(--primary); } /* 标题中的强调色 */
-        .dark .hero-title .highlight { color: var(--primary-light); }
+        .hero-title .highlight-ai { /* 为AI字母创建特定类 */
+            color: var(--primary);
+            /* 可选：如果需要微调字母间距或单个字母位置 */
+            /* letter-spacing: -0.05em; /* 尝试缩小AI之间的间距 */
+        }
+        /* .hero-title .highlight-ai .char-a { display:inline-block; margin-right: -0.08em; } */ /* 示例：微调A和I的间距 */
+        .dark .hero-title .highlight-ai { color: var(--primary-light); }
+
 
         .hero-subtitle {
             font-size: clamp(1.1rem, 2.5vw, 1.35rem);
             color: var(--text-muted);
             margin-bottom: 2.5rem;
-            font-family: var(--font-sans); /* 副标题用无衬线体保持易读 */
+            font-family: var(--font-sans);
             line-height: 1.7;
-            max-width: 600px; /* 控制副标题宽度 */
+            max-width: 600px;
         }
         .dark .hero-subtitle { color: var(--text-muted-dark); }
 
         .hero-img {
             width: 100%;
-            max-width: 500px; /* 图片最大宽度 */
+            max-width: 500px;
             height: auto;
             border-radius: var(--border-radius-xl);
-            box-shadow: var(--shadow-xl); /* 更自然的阴影 */
+            box-shadow: var(--shadow-xl);
             object-fit: cover;
-            /* 移除动画，让图片更稳定，除非特别需要 */
-            /* animation: float 7s ease-in-out infinite alternate; */
-            border: 3px solid var(--card-light); /* 细边框增加质感 */
+            border: 3px solid var(--card-light);
         }
         .dark .hero-img { border-color: var(--card-dark); }
 
 
-        .cta-button { /* 按钮风格调整 */
+        .cta-button {
             display: inline-flex; align-items: center;
             background-color: var(--primary); color: white;
             font-weight: 600; font-size: 1rem; padding: 0.8rem 1.8rem;
@@ -230,7 +229,7 @@
             position: relative; display: inline-block; letter-spacing: -0.01em;
         }
         .dark .section-title { color: var(--text-light); }
-        .section-title::after { /* 更精致的下划线 */
+        .section-title::after {
             content: ''; position: absolute; left: 50%; bottom: -0.5rem; width: 60px; height: 3px;
             background: var(--secondary);
             transform: translateX(-50%); border-radius: 2px; opacity: 0.9;
@@ -242,7 +241,7 @@
         .overview-card {
             background-color: var(--card-light); border-radius: var(--border-radius-lg); padding: 2rem;
             box-shadow: var(--shadow-md); transition: var(--transition-cubic);
-            border-left: 4px solid var(--secondary); /* 左侧彩色条，使用辅助色 */
+            border-left: 4px solid var(--secondary);
         }
         .dark .overview-card { background-color: var(--card-dark); border-left-color: var(--secondary-light); }
         .overview-card:hover { box-shadow: var(--shadow-xl); transform: translateY(-8px) scale(1.01); border-left-color: var(--accent);}
@@ -253,7 +252,7 @@
             border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem; margin-bottom: 1.25rem;
         }
-        .dark .overview-card-icon { background-color: rgba(var(--rgb-secondary-light, 122, 223, 223), 0.15); color: var(--secondary-light); }
+        .dark .overview-card-icon { background-color: rgba(var(--rgb-secondary-light, 251, 192, 45), 0.15); color: var(--secondary-light); } /* 使用变量或硬编码RGB */
         .overview-card-title { font-size: 1.25rem; font-family: var(--font-sans); font-weight: 700; margin-bottom: 0.6rem; color: var(--text-dark); }
         .dark .overview-card-title { color: var(--text-light); }
         .overview-card-description { color: var(--text-muted); font-size: 0.9rem; line-height: 1.65; }
@@ -261,15 +260,14 @@
 
         /* 课程大纲滑动容器 */
         .syllabus-swiper-container { width: 100%; padding-top: 2.5rem; padding-bottom: 4.5rem; position: relative; margin-top: 1rem;}
-        .swiper.syllabus-swiper-container { overflow: visible; /* Coverflow 等效果需要 */}
+        .swiper.syllabus-swiper-container { overflow: visible; }
         .swiper-slide.syllabus-slide {
-            width: 90%; /* 移动端 */
-            max-width: 460px; /* PC端卡片最大宽度，根据内容调整 */
-            min-height: 500px; /* 保证卡片有足够高度 */
+            width: 90%;
+            max-width: 460px;
+            min-height: 500px;
             height: auto; display: flex; justify-content: center; align-items: stretch;
             padding: 0 10px;
             box-sizing: border-box;
-            /* Coverflow 效果需要, 如果不用可以注释掉 */
             transform-style: preserve-3d;
             backface-visibility: hidden;
             opacity: 0.55;
@@ -279,9 +277,8 @@
         .swiper-slide-active.syllabus-slide {
             opacity: 1;
             transform: scale(1);
-            z-index: 1; /*确保当前slide在最前*/
+            z-index: 1;
         }
-         /* 让临近的也稍微明显一点 */
         .swiper-slide-next.syllabus-slide, .swiper-slide-prev.syllabus-slide {
             opacity: 0.75;
             transform: scale(0.92);
@@ -307,7 +304,7 @@
         .syllabus-card .module-header-flex { display: flex; align-items: flex-start; margin-bottom: 1.5rem; }
         .syllabus-card .module-number-badge {
             flex-shrink: 0; width: 52px; height: 52px;
-            background: linear-gradient(135deg, var(--primary), var(--accent)); /* 渐变背景 */
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white; font-size: 1.6rem; font-weight: 900; font-family: var(--font-title-sans);
             border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center;
             box-shadow: 0 3px 6px rgba(0,0,0,0.1); margin-right: 1rem;
@@ -319,7 +316,7 @@
         .dark .syllabus-card .module-title-group .module-subtitle-text { color: var(--primary-light); }
 
         .syllabus-card .module-core-goal { font-weight: 500; font-size: 1rem; margin-bottom: 1.25rem; color: var(--secondary-dark); padding: 0.5rem 0.75rem; border-left: 4px solid var(--secondary); background-color: var(--secondary-bg); border-radius: 0 var(--border-radius) var(--border-radius) 0;}
-        .dark .syllabus-card .module-core-goal { color: var(--secondary-light); border-left-color: var(--secondary-light); background-color: rgba(var(--rgb-secondary-light, 122, 223, 223), 0.1); }
+        .dark .syllabus-card .module-core-goal { color: var(--secondary-light); border-left-color: var(--secondary-light); background-color: rgba(251, 192, 45, 0.1); } /* 使用 secondary 的RGB值 */
         .syllabus-card .module-core-goal i { margin-right: 0.6rem; }
 
         .syllabus-card .module-section-title {
@@ -335,7 +332,7 @@
         .syllabus-card ul { list-style-type: none; padding-left: 0; space-y: 0.35rem; font-size: 0.9rem; line-height: 1.65; color: var(--text-muted); }
         .syllabus-card ul li { position: relative; padding-left: 1.4rem; }
         .syllabus-card ul li::before {
-            content: "\f00c"; /* Font Awesome check solid */
+            content: "\f00c";
             font-family: "Font Awesome 6 Free"; font-weight: 900;
             position: absolute; left: 0; top: 0.2em;
             font-size: 0.8rem; color: var(--primary);
@@ -358,19 +355,17 @@
         .dark .swiper-pagination-bullet-active { background-color: var(--primary-light) !important; }
         .swiper-pagination { bottom: 8px !important; }
 
-
         .drop-cap::first-letter {
-            font-size: 5em; font-weight: 700; float: left; line-height: 0.65; /* 调整行高 */
-            margin: 0.15em 0.08em -0.1em 0; /* 微调边距以适应行高 */
+            font-size: 5em; font-weight: 700; float: left; line-height: 0.65;
+            margin: 0.15em 0.08em -0.1em 0;
             color: var(--primary); font-family: var(--font-serif);
             text-shadow: 1px 1px 0px rgba(0,0,0,0.03);
         }
         .dark .drop-cap::first-letter { color: var(--primary-light); }
 
-        /* 页脚杂志风格 */
         .footer-magazine {
             background-color: var(--text-dark);
-            color: rgba(255,255,255,0.75); /* 提高文字对比度 */
+            color: rgba(255,255,255,0.75);
             padding: 6rem 0 3.5rem;
             font-family: var(--font-serif);
             border-top: 5px solid var(--primary);
@@ -383,7 +378,6 @@
         .footer-magazine a:hover { color: var(--primary-light); text-decoration: underline; }
         .footer-magazine .social-icon-link { font-size: 1.6rem; margin: 0 0.8rem; }
         .footer-magazine .copyright-text { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin-top: 3.5rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2.5rem;}
-
     </style>
 </head>
 <body class="antialiased">
@@ -429,7 +423,7 @@
                 <div class="hero-content-grid">
                     <div class="hero-text-column">
                         <h1 class="hero-title drop-cap">
-                            <span class="highlight">AI</span>探险家<span class="text-gray-400 dark:text-gray-600 text-3xl md:text-4xl align-middle">：</span><br class="md:hidden">我的第一个人工智能伙伴
+                            <span class="highlight-ai">AI</span>探险家<span class="text-gray-400 dark:text-gray-600 text-3xl md:text-4xl align-middle">：</span><br class="md:hidden">我的第一个人工智能伙伴
                         </h1>
                         <p class="hero-subtitle">
                             专为六年级好奇小脑袋设计的AI启蒙之旅。我们将一同揭开人工智能的神秘面纱，探索它如何重塑世界，学习与AI协作创新的未来技能，播下科技梦想的种子。
@@ -458,14 +452,14 @@
                     <p class="overview-card-description">六年级学生（11-12岁），无需编程经验，对新科技充满好奇的小小探索者。</p>
                 </div>
                 <div class="overview-card">
-                    <div class="overview-card-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="overview-card-icon"><i class="fas fa-calendar-check"></i></div> 
                     <h3 class="overview-card-title">课程结构</h3>
                     <p class="overview-card-description">共8节核心课程，每节40分钟。每周一课，采用精美PPT与生动旁白相结合的线上教学模式。</p>
                 </div>
                 <div class="overview-card">
-                    <div class="overview-card-icon"><i class="fas fa-bullseye"></i></div>
+                    <div class="overview-card-icon"><i class="fas fa-cogs"></i></div> 
                     <h3 class="overview-card-title">核心目标</h3>
-                    <p class="overview-card-description">理解AI基础，体验趣味应用，思考伦理责任，激发对AI未来的无限畅想与创造潜能。</p>
+                    <p class="overview-card-description">理解AI基本概念，体验趣味应用，思考伦理责任，激发对AI未来的无限畅想与创造潜能。</p>
                 </div>
             </div>
         </section>
@@ -547,7 +541,7 @@
                         </article>
                     </div>
 
-                    <!-- Slide 3: 第3节 (占位符) -->
+                    <!-- Slide 3: 第3节 (请您填充详细内容) -->
                     <div class="swiper-slide syllabus-slide">
                         <article class="syllabus-card interactive-card">
                             <div class="module-header-flex">
@@ -578,36 +572,132 @@
                             </div>
                         </article>
                     </div>
-                    <!-- ... (此处为您预留第4, 5, 6, 7节的swiper-slide结构, 请参照以上格式填充) ... -->
+                    <!-- Slide 4: 第4节 (请您填充详细内容) -->
+                     <div class="swiper-slide syllabus-slide">
+                        <article class="syllabus-card interactive-card">
+                            <div class="module-header-flex">
+                                <span class="module-number-badge">04</span>
+                                <div class="module-title-group">
+                                    <h3>和AI“好好说话”</h3>
+                                    <p class="module-subtitle-text">神奇的提示词工程</p>
+                                </div>
+                            </div>
+                            <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 理解提示词，掌握写好提示词的基本技巧与四步法。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>Prompt：给AI下达的“魔法指令”</li>
+                                        <li>好指令 vs 坏指令：效果大不同！</li>
+                                        <li>提示词“四步心法”/神奇口诀</li>
+                                        <li>练习：写出让AI惊艳的提示词</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>“提示词改造大师”挑战赛</li>
+                                        <li>小组合作：为班级设计AI宣传语</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Slide 5: 第5节 (请您填充详细内容) -->
                     <div class="swiper-slide syllabus-slide">
-                        <article class="syllabus-card interactive-card opacity-50 pointer-events-none">
-                             <div class="flex items-center justify-center h-full text-center">
-                                <p class="text-xl text-muted italic">更多精彩模块，<br>敬请期待填充！<br><i class="fas fa-ellipsis-h text-3xl mt-4"></i></p>
+                        <article class="syllabus-card interactive-card">
+                           <div class="module-header-flex">
+                                <span class="module-number-badge">05</span>
+                                <div class="module-title-group">
+                                    <h3>AI是我的创意小助手</h3>
+                                    <p class="module-subtitle-text">AIGC应用：写作与绘画</p>
+                                </div>
+                            </div>
+                            <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 体验AI在写作和绘画方面的辅助能力，激发创作兴趣。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>AI当“笔杆子”：写故事、诗歌、邮件</li>
+                                        <li>AI当“小画家”：文字变精美图画</li>
+                                        <li>AI绘画工具初体验 (如即梦等)</li>
+                                        <li>AI在教育、医疗、娱乐领域的应用</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>“AI故事接龙”：全班共创奇幻故事</li>
+                                        <li>“AI画廊漫游”：看图说话编故事</li>
+                                        <li>“我的AI画作”：输入关键词，见证奇迹</li>
+                                    </ul>
+                                </div>
                             </div>
                         </article>
                     </div>
+                    <!-- Slide 6: 第6节 (请您填充详细内容) -->
+                    <div class="swiper-slide syllabus-slide">
+                        <article class="syllabus-card interactive-card">
+                            <div class="module-header-flex">
+                                <span class="module-number-badge">06</span>
+                                <div class="module-title-group">
+                                    <h3>AI是我的学习好伙伴</h3>
+                                    <p class="module-subtitle-text">知识探索与语言学习</p>
+                                </div>
+                            </div>
+                            <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 了解AI在学习辅助方面的应用，学习利用AI获取知识。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>AI“万事通”：解答百科难题 (秘塔搜索)</li>
+                                        <li>AI辅导作业：检查与思路启发 (正确观念)</li>
+                                        <li>AI语言学习：口语练习 (豆包)、翻译</li>
+                                        <li>安全使用AI学习工具</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>“AI知识挑战赛”：看谁找答案快又准</li>
+                                        <li>“小小翻译官”：中英互译大比拼</li>
+                                        <li>角色扮演：“AI小老师”在线答疑</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Slide 7: 第7节 (请您填充详细内容) -->
                      <div class="swiper-slide syllabus-slide">
-                        <article class="syllabus-card interactive-card opacity-50 pointer-events-none">
-                             <div class="flex items-center justify-center h-full text-center">
-                                <p class="text-xl text-muted italic">更多精彩模块，<br>敬请期待填充！<br><i class="fas fa-ellipsis-h text-3xl mt-4"></i></p>
+                        <article class="syllabus-card interactive-card">
+                            <div class="module-header-flex">
+                                <span class="module-number-badge">07</span>
+                                <div class="module-title-group">
+                                    <h3>AI的“小烦恼”与责任</h3>
+                                    <p class="module-subtitle-text">伦理与安全同行</p>
+                                </div>
+                            </div>
+                           <div class="module-content-wrapper">
+                                <div>
+                                    <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 初步了解AI伦理问题，树立正确使用AI的责任感。</p>
+                                    <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
+                                    <ul>
+                                        <li>AI也会犯错吗？(公平性与偏见)</li>
+                                        <li>AI与我的小秘密 (隐私保护)</li>
+                                        <li>AI会让爸爸妈妈失业吗？(就业影响)</li>
+                                        <li>小小数字公民的责任 (辨别信息, 合理使用)</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
+                                    <ul>
+                                        <li>情景剧：“AI法官”的公正难题</li>
+                                        <li>讨论会：“AI帮我作弊了，怎么办？”</li>
+                                    </ul>
+                                </div>
                             </div>
                         </article>
                     </div>
-                     <div class="swiper-slide syllabus-slide">
-                        <article class="syllabus-card interactive-card opacity-50 pointer-events-none">
-                             <div class="flex items-center justify-center h-full text-center">
-                                <p class="text-xl text-muted italic">更多精彩模块，<br>敬请期待填充！<br><i class="fas fa-ellipsis-h text-3xl mt-4"></i></p>
-                            </div>
-                        </article>
-                    </div>
-                     <div class="swiper-slide syllabus-slide">
-                        <article class="syllabus-card interactive-card opacity-50 pointer-events-none">
-                             <div class="flex items-center justify-center h-full text-center">
-                                <p class="text-xl text-muted italic">更多精彩模块，<br>敬请期待填充！<br><i class="fas fa-ellipsis-h text-3xl mt-4"></i></p>
-                            </div>
-                        </article>
-                    </div>
-
 
                     <!-- Slide 8: 第8节 -->
                     <div class="swiper-slide syllabus-slide">
@@ -701,12 +791,12 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
                     <div class="flex items-center mb-3">
-                        <i class="fas fa-book-open text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i>
+                        <i class="fas fa-book-reader text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i>
                         <h3 class="text-lg font-semibold font-sans">《人工智能启蒙（儿童版）》</h3>
                     </div>
                     <p class="text-xs text-muted mb-2 uppercase tracking-wider">编辑推荐</p>
                     <p class="text-muted text-sm leading-relaxed flex-grow">选择一本国内优质出版社针对小学生编写的AI科普绘本或读物，例如“东方娃娃·给孩子的AI课”系列等。</p>
-                    <a href="https://search.jd.com/Search?keyword=%E5%84%BF%E7%AB%A5AI%E7%A7%91%E6%99%AE%E7%BB%98%E6%9C%AC" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">去京东看看 <i class="fas fa-arrow-right text-xs ml-1 transform group-hover:translate-x-1 transition-transform"></i></a>
+                    <a href="https://search.jd.com/Search?keyword=%E5%84%BF%E7%AB%A5%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">去京东看看 <i class="fas fa-arrow-right text-xs ml-1 transform group-hover:translate-x-1 transition-transform"></i></a>
                 </div>
                 <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
                      <div class="flex items-center mb-3">
@@ -719,15 +809,15 @@
                 </div>
                 <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
                     <div class="flex items-center mb-3">
-                        <i class="fas fa-desktop text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i>
-                        <h3 class="text-lg font-semibold font-sans">Hello Ruby系列</h3>
+                        <i class="fas fa-robot text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i> 
+                        <h3 class="text-lg font-semibold font-sans">《这就是ChatGPT》</h3>
                     </div>
-                    <p class="text-xs text-muted mb-2 uppercase tracking-wider">作者：Linda Liukas</p>
-                    <p class="text-muted text-sm leading-relaxed flex-grow">通过生动的故事和插画，向孩子们介绍计算机科学和编程的基本概念，趣味性强，适合启蒙。</p>
-                    <a href="https://search.jd.com/Search?keyword=Hello%20Ruby%20Linda%20Liukas" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">去京东看看 <i class="fas fa-arrow-right text-xs ml-1 transform group-hover:translate-x-1 transition-transform"></i></a>
+                    <p class="text-xs text-muted mb-2 uppercase tracking-wider">作者：斯蒂芬·沃尔夫勒姆</p>
+                    <p class="text-muted text-sm leading-relaxed flex-grow">深入浅出地解释了大型语言模型的工作原理，作者是计算领域的大师，对理解ChatGPT等工具有很大帮助。</p>
+                    <a href="https://item.jd.com/10073096168988.html" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">去京东看看 <i class="fas fa-arrow-right text-xs ml-1 transform group-hover:translate-x-1 transition-transform"></i></a>
                 </div>
                 <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
-                     <i class="fas fa-atom text-3xl text-primary mb-4 self-start"></i>
+                     <i class="fas fa-atom text-3xl text-primary mb-4 self-start group-hover:text-accent transition-colors"></i>
                     <h3 class="text-xl font-semibold font-sans">《终极算法》</h3>
                     <p class="text-xs text-muted mb-3 uppercase tracking-wider">作者：佩德罗·多明戈斯</p>
                     <p class="text-muted text-sm leading-relaxed flex-grow">介绍了机器学习的五大流派及其核心思想，一本书带你理解AI“学习”的本质和未来方向。</p>
@@ -735,7 +825,7 @@
                 </div>
                 <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
                     <div class="flex items-center mb-3">
-                        <i class="fas fa-mouse-pointer text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i>
+                        <i class="fas fa-laptop-code text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i> 
                         <h3 class="text-lg font-semibold font-sans">Code.org - AI 课程</h3>
                     </div>
                     <p class="text-xs text-muted mb-2 uppercase tracking-wider">在线互动教程</p>
@@ -744,7 +834,7 @@
                 </div>
                  <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
                     <div class="flex items-center mb-3">
-                        <i class="fas fa-university text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i>
+                        <i class="fas fa-graduation-cap text-2xl text-primary mr-3 group-hover:text-accent transition-colors"></i>
                         <h3 class="text-lg font-semibold font-sans">Elements of AI</h3>
                     </div>
                     <p class="text-xs text-muted mb-2 uppercase tracking-wider">赫尔辛基大学 & Reaktor</p>
@@ -785,7 +875,7 @@
                     </ul>
                 </div>
                  <div>
-                    <h4>联系与关注</h4>
+                    <h4>联系 Jeff</h4>
                      <div class="flex space-x-5 mb-6">
                         <a href="https://github.com/USYD2020" target="_blank" aria-label="GitHub" class="social-icon-link"><i class="fab fa-github"></i></a>
                         <a href="https://mp.weixin.qq.com/s/2IwZPbs0da27t14TrxsrPw?scene=1" target="_blank" aria-label="微信公众号" class="social-icon-link"><i class="fab fa-weixin"></i></a>
@@ -795,11 +885,15 @@
                             <i class="fas fa-envelope mt-1 mr-3 flex-shrink-0 w-5 text-center text-lg text-primary-light"></i>
                             <a href="mailto:8ai4kids@gmail.com">8ai4kids@gmail.com</a>
                         </li>
+                         <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 flex-shrink-0 w-5 text-center text-lg text-primary-light"></i>
+                            <span>AI启蒙中心, 智慧未来城</span>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="copyright-text">
-                作者：Jeff & AI4Kids 课程设计团队 • © <span id="currentYearFooter"></span> AI4Kids. 版权所有，慧育未来.
+                课程内容由 Jeff & AI4Kids 课程设计团队创作 • © <span id="currentYearFooter"></span> AI4Kids. 版权所有，慧育未来.
             </div>
         </div>
     </footer>
@@ -808,20 +902,20 @@
     <script type="module">
         // Swiper initialization for syllabus
         const syllabusSwiper = new Swiper('.syllabus-swiper-container', {
-            effect: 'coverflow', // 启用 Coverflow 效果
+            effect: 'coverflow',
             coverflowEffect: {
-                rotate: 35,       // SlideRotate in degrees
-                stretch: 0,       // Stretch space between slides (in px)
-                depth: 120,       // Depth offset in px (slides translate in Z axis)
-                modifier: 1,      // Effect multipler
-                slideShadows: true, // Enables slides shadows
+                rotate: 25, // 旋转角度
+                stretch: -20, // 卡片间的拉伸，负值会使卡片更紧凑
+                depth: 150,  // 深度效果
+                modifier: 1, // 效果倍增器
+                slideShadows: false, // 关闭幻灯片阴影，因为我们卡片自带阴影
             },
             grabCursor: true,
-            centeredSlides: true, // 激活的幻灯片会居中
-            slidesPerView: 'auto', // 根据slide的CSS宽度自动调整
+            centeredSlides: true,
+            slidesPerView: 'auto',
             loop: true,
-            loopedSlides: 3, // 确保循环平滑，通常比slidesPerView多一点
-            initialSlide: 1, // 从第二个slide开始，让coverflow效果更明显
+            // loopedSlides: 8, // 确保循环平滑，通常比实际slide数量多一些，或者等于slide数量
+            initialSlide: 0, // 从第一个slide开始
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -831,18 +925,18 @@
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-            breakpoints: { // 响应式调整
-                640: { // sm
-                    slidesPerView: 1.8,
-                     coverflowEffect: { rotate: 30, stretch: -20, depth: 100, modifier: 1.2, slideShadows: true,},
+            breakpoints: {
+                640: {
+                    slidesPerView: 1.6, // 手机端稍多显示
+                    coverflowEffect: { rotate: 30, stretch: -15, depth: 120, modifier: 1.1,},
                 },
                 768: { // md
-                    slidesPerView: 2,
-                    coverflowEffect: { rotate: 25, stretch: -30, depth: 150, modifier: 1.2, slideShadows: true,},
+                    slidesPerView: 2.2, // 平板
+                    coverflowEffect: { rotate: 28, stretch: -25, depth: 160, modifier: 1.1,},
                 },
                 1024: { // lg
-                    slidesPerView: 2.5, // 同时可见2.5个，以突出Coverflow效果
-                    coverflowEffect: { rotate: 20, stretch: -40, depth: 200, modifier: 1, slideShadows: true,},
+                    slidesPerView: 2.8, // 桌面，同时可见更多，Coverflow效果更明显
+                    coverflowEffect: { rotate: 22, stretch: -35, depth: 180, modifier: 1,},
                 }
             }
         });
@@ -869,7 +963,7 @@
             }
         }
 
-        applyTheme(currentTheme); // Apply initial theme
+        applyTheme(currentTheme);
 
         themeToggle.addEventListener('click', () => {
             currentTheme = document.documentElement.classList.toggle('dark') ? 'dark' : 'light';
@@ -878,7 +972,7 @@
         });
 
         prefersDarkScheme.addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) { // Only if user hasn't manually set a theme
+            if (!localStorage.getItem('theme')) {
                 currentTheme = e.matches ? "dark" : "light";
                 applyTheme(currentTheme);
             }
@@ -910,7 +1004,7 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+        }, { threshold: 0.1 });
 
         sections.forEach(section => {
             observer.observe(section);
