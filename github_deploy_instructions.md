@@ -27,11 +27,9 @@ git push -u origin main
 2. 点击仓库页面上方的"Settings"选项卡
 3. 在左侧导航栏中，点击"Pages"
 4. 在"Source"部分，从分支下拉菜单中选择"main"，然后点击"Save"
-5. 等待几分钟，GitHub 会提供一个网站链接（通常格式为 https://你的用户名.github.io/ai4kids-html/）
+5. 在 GitHub 上已启用 GitHub Pages 功能：https://usyd2020.github.io/AI4kids-HTML/
 
-## 4. 访问您的网站
-
-部署完成后，您可以通过 GitHub 提供的链接访问您的网站。
+如果您希望使用自定义域名，可以在 GitHub Pages 设置页面的"Custom domain"部分输入您的域名，并在您的 DNS 提供商处添加相应的 DNS 记录。
 
 ## 注意事项
 
