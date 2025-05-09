@@ -378,6 +378,14 @@
         .footer-magazine a:hover { color: var(--primary-light); text-decoration: underline; }
         .footer-magazine .social-icon-link { font-size: 1.6rem; margin: 0 0.8rem; }
         .footer-magazine .copyright-text { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin-top: 3.5rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2.5rem;}
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -462,6 +470,211 @@
                     <p class="overview-card-description">理解AI基本概念，体验趣味应用，思考伦理责任，激发对AI未来的无限畅想与创造潜能。</p>
                 </div>
             </div>
+
+            <!-- 课程概览表格 - 改进版 -->
+            <div class="mt-16 relative z-10">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 dark:from-primary/10 dark:to-accent/10 rounded-xl -z-10 transform -skew-y-2 scale-105 opacity-70"></div>
+                <h3 class="text-2xl font-bold text-center mb-6 font-display tracking-tight">课程探索图谱</h3>
+                <div class="overflow-x-auto rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 hide-scrollbar">
+                    <table class="min-w-full bg-white dark:bg-gray-800/90 backdrop-blur-sm">
+                        <thead>
+                            <tr class="bg-primary/10 dark:bg-primary/20 border-b-2 border-primary dark:border-primary-light drop-shadow-sm">
+                                <th class="py-4 px-6 text-left font-sans text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider">
+                                    节次
+                                </th>
+                                <th class="py-4 px-6 text-left font-sans text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider">
+                                    主题
+                                </th>
+                                <th class="py-4 px-6 text-left font-sans text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider">
+                                    主要内容
+                                </th>
+                                <th class="py-4 px-6 text-left font-sans text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider">
+                                    互动形式
+                                </th>
+                                <th class="py-4 px-6 text-left font-sans text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider">
+                                    时长
+                                </th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">1</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">AI是什么？</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-lightbulb text-secondary mr-2"></i>
+                                        <span>AI定义、历史、日常应用</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-bg dark:bg-secondary-dark/20 text-secondary-dark dark:text-secondary-light">
+                                        <i class="fas fa-gamepad mr-1"></i>小测验
+                                    </span>
+                                    <span class="ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-bg dark:bg-accent-dark/20 text-accent-dark dark:text-accent-light">
+                                        <i class="fas fa-hands-helping mr-1"></i>实践活动
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">2</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">认识ChatGPT</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-robot text-secondary mr-2"></i>
+                                        <span>ChatGPT功能、原理、演示</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-400">
+                                        <i class="fas fa-magic mr-1"></i>生成内容活动
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">3</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">认识AIGC</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-brain text-secondary mr-2"></i>
+                                        <span>AI优势、伦理问题、人类控制</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-400">
+                                        <i class="fas fa-magic mr-1"></i>生成内容活动
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">4</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">使用AI：提示词工程</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-keyboard text-secondary mr-2"></i>
+                                        <span>提示词技巧、练习</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400">
+                                        <i class="fas fa-edit mr-1"></i>提示词练习
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">5</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">AI在不同领域</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-globe text-secondary mr-2"></i>
+                                        <span>教育、医疗、娱乐应用</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-bg dark:bg-accent-dark/20 text-accent-dark dark:text-accent-light">
+                                        <i class="fas fa-hands-helping mr-1"></i>实践活动
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">6</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">动手体验AI工具</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-tools text-secondary mr-2"></i>
+                                        <span>使用绘图、翻译工具</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-bg dark:bg-accent-dark/20 text-accent-dark dark:text-accent-light">
+                                        <i class="fas fa-hands-helping mr-1"></i>实践活动
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">7</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">AI与社会</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-users text-secondary mr-2"></i>
+                                        <span>工作、隐私、人类监督</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-400">
+                                        <i class="fas fa-comments mr-1"></i>讨论
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="group transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:scale-[1.02] origin-center">
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-bold text-primary dark:text-primary-light group-hover:border-transparent">8</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 font-medium group-hover:border-transparent">AI的未来与准备</td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-rocket text-secondary mr-2"></i>
+                                        <span>未来发展、学生准备</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 group-hover:border-transparent">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-bg dark:bg-secondary-dark/20 text-secondary-dark dark:text-secondary-light">
+                                        <i class="fas fa-gamepad mr-1"></i>总结测验
+                                    </span>
+                                    <span class="ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 dark:bg-indigo-900/20 text-indigo-800 dark:text-indigo-400">
+                                        <i class="fas fa-question-circle mr-1"></i>Q&A
+                                    </span>
+                                </td>
+                                <td class="py-4 px-6 border-b border-gray-100 dark:border-gray-700 text-sm font-medium group-hover:border-transparent">
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-gray-500 dark:text-gray-400 mr-2"></i>
+                                        <span>40分钟</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </section>
 
 
@@ -483,7 +696,7 @@
                                 <span class="module-number-badge">01</span>
                                 <div class="module-title-group">
                                     <h3>你好，AI！</h3>
-                                    <p class="module-subtitle-text">身边的“隐形”朋友</p>
+                                    <p class="module-subtitle-text">身边的"隐形"朋友</p>
                                 </div>
                             </div>
                             <div class="module-content-wrapper">
@@ -491,7 +704,7 @@
                                     <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 理解AI定义、简史、日常应用及算法初识。</p>
                                     <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
                                     <ul>
-                                        <li>AI是什么？（“会思考的机器”大揭秘）</li>
+                                        <li>AI是什么？（"会思考的机器"大揭秘）</li>
                                         <li>AI简史时光机 (关键里程碑图解)</li>
                                         <li>算法是什么？(美味菜谱巧比喻)</li>
                                         <li>生活中的AI伙伴 (智能音箱, 个性推荐)</li>
@@ -500,8 +713,8 @@
                                 <div class="mt-6">
                                     <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
                                     <ul>
-                                        <li>“AI猜猜我是谁”机智抢答</li>
-                                        <li>“我身边的AI”发现与分享会</li>
+                                        <li>"AI猜猜我是谁"机智抢答</li>
+                                        <li>"我身边的AI"发现与分享会</li>
                                     </ul>
                                 </div>
                             </div>
@@ -514,7 +727,7 @@
                             <div class="module-header-flex">
                                 <span class="module-number-badge">02</span>
                                 <div class="module-title-group">
-                                    <h3>AI的“大脑”如何学习？</h3>
+                                    <h3>AI的"大脑"如何学习？</h3>
                                     <p class="module-subtitle-text">数据与机器学习初探</p>
                                 </div>
                             </div>
@@ -523,16 +736,16 @@
                                     <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 理解数据对AI的重要性，初步了解机器学习基本原理。</p>
                                     <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
                                     <ul>
-                                        <li>AI的“美食”：数据是什么？为何重要？</li>
+                                        <li>AI的"美食"：数据是什么？为何重要？</li>
                                         <li>AI的学习秘笈：机器学习是什么？</li>
-                                        <li>“训练”AI小宠物 (猫狗识别生动实例)</li>
+                                        <li>"训练"AI小宠物 (猫狗识别生动实例)</li>
                                         <li>初识ChatGPT：聪明的聊天伙伴</li>
                                     </ul>
                                 </div>
                                 <div class="mt-6">
                                     <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
                                     <ul>
-                                        <li>“喂AI数据大作战”趣味判断</li>
+                                        <li>"喂AI数据大作战"趣味判断</li>
                                         <li>讨论：如何教AI识别各种水果？</li>
                                         <li>初试牛刀：向ChatGPT提问</li>
                                     </ul>
@@ -547,7 +760,7 @@
                             <div class="module-header-flex">
                                 <span class="module-number-badge">03</span>
                                 <div class="module-title-group">
-                                    <h3>AI界的“大明星”</h3>
+                                    <h3>AI界的"大明星"</h3>
                                     <p class="module-subtitle-text">认识AIGC与Token</p>
                                 </div>
                             </div>
@@ -557,7 +770,7 @@
                                     <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
                                     <ul>
                                         <li>AIGC：AI的创造力大爆发！</li>
-                                        <li>AI如何理解语言？Token的“积木”奥秘</li>
+                                        <li>AI如何理解语言？Token的"积木"奥秘</li>
                                         <li>AI的超能力：提高效率，解决难题</li>
                                         <li>（简述）AIGC能写文章、画画、作曲</li>
                                     </ul>
@@ -565,7 +778,7 @@
                                 <div class="mt-6">
                                     <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
                                     <ul>
-                                        <li>“AI创意工坊”：如果我是AIGC，我想创造…</li>
+                                        <li>"AI创意工坊"：如果我是AIGC，我想创造…</li>
                                         <li>头脑风暴：AIGC还能帮我们做什么？</li>
                                     </ul>
                                 </div>
@@ -578,7 +791,7 @@
                             <div class="module-header-flex">
                                 <span class="module-number-badge">04</span>
                                 <div class="module-title-group">
-                                    <h3>和AI“好好说话”</h3>
+                                    <h3>和AI"好好说话"</h3>
                                     <p class="module-subtitle-text">神奇的提示词工程</p>
                                 </div>
                             </div>
@@ -587,16 +800,16 @@
                                     <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 理解提示词，掌握写好提示词的基本技巧与四步法。</p>
                                     <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
                                     <ul>
-                                        <li>Prompt：给AI下达的“魔法指令”</li>
+                                        <li>Prompt：给AI下达的"魔法指令"</li>
                                         <li>好指令 vs 坏指令：效果大不同！</li>
-                                        <li>提示词“四步心法”/神奇口诀</li>
+                                        <li>提示词"四步心法"/神奇口诀</li>
                                         <li>练习：写出让AI惊艳的提示词</li>
                                     </ul>
                                 </div>
                                 <div class="mt-6">
                                     <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
                                     <ul>
-                                        <li>“提示词改造大师”挑战赛</li>
+                                        <li>"提示词改造大师"挑战赛</li>
                                         <li>小组合作：为班级设计AI宣传语</li>
                                     </ul>
                                 </div>
@@ -618,8 +831,8 @@
                                     <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 体验AI在写作和绘画方面的辅助能力，激发创作兴趣。</p>
                                     <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
                                     <ul>
-                                        <li>AI当“笔杆子”：写故事、诗歌、邮件</li>
-                                        <li>AI当“小画家”：文字变精美图画</li>
+                                        <li>AI当"笔杆子"：写故事、诗歌、邮件</li>
+                                        <li>AI当"小画家"：文字变精美图画</li>
                                         <li>AI绘画工具初体验 (如即梦等)</li>
                                         <li>AI在教育、医疗、娱乐领域的应用</li>
                                     </ul>
@@ -627,9 +840,9 @@
                                 <div class="mt-6">
                                     <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
                                     <ul>
-                                        <li>“AI故事接龙”：全班共创奇幻故事</li>
-                                        <li>“AI画廊漫游”：看图说话编故事</li>
-                                        <li>“我的AI画作”：输入关键词，见证奇迹</li>
+                                        <li>"AI故事接龙"：全班共创奇幻故事</li>
+                                        <li>"AI画廊漫游"：看图说话编故事</li>
+                                        <li>"我的AI画作"：输入关键词，见证奇迹</li>
                                     </ul>
                                 </div>
                             </div>
@@ -650,7 +863,7 @@
                                     <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 了解AI在学习辅助方面的应用，学习利用AI获取知识。</p>
                                     <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
                                     <ul>
-                                        <li>AI“万事通”：解答百科难题 (秘塔搜索)</li>
+                                        <li>AI"万事通"：解答百科难题 (秘塔搜索)</li>
                                         <li>AI辅导作业：检查与思路启发 (正确观念)</li>
                                         <li>AI语言学习：口语练习 (豆包)、翻译</li>
                                         <li>安全使用AI学习工具</li>
@@ -659,9 +872,9 @@
                                 <div class="mt-6">
                                     <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
                                     <ul>
-                                        <li>“AI知识挑战赛”：看谁找答案快又准</li>
-                                        <li>“小小翻译官”：中英互译大比拼</li>
-                                        <li>角色扮演：“AI小老师”在线答疑</li>
+                                        <li>"AI知识挑战赛"：看谁找答案快又准</li>
+                                        <li>"小小翻译官"：中英互译大比拼</li>
+                                        <li>角色扮演："AI小老师"在线答疑</li>
                                     </ul>
                                 </div>
                             </div>
@@ -673,7 +886,7 @@
                             <div class="module-header-flex">
                                 <span class="module-number-badge">07</span>
                                 <div class="module-title-group">
-                                    <h3>AI的“小烦恼”与责任</h3>
+                                    <h3>AI的"小烦恼"与责任</h3>
                                     <p class="module-subtitle-text">伦理与安全同行</p>
                                 </div>
                             </div>
@@ -691,8 +904,8 @@
                                 <div class="mt-6">
                                     <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
                                     <ul>
-                                        <li>情景剧：“AI法官”的公正难题</li>
-                                        <li>讨论会：“AI帮我作弊了，怎么办？”</li>
+                                        <li>情景剧："AI法官"的公正难题</li>
+                                        <li>讨论会："AI帮我作弊了，怎么办？"</li>
                                     </ul>
                                 </div>
                             </div>
@@ -714,7 +927,7 @@
                                     <p class="module-core-goal"><i class="fas fa-lightbulb"></i> 展望AI未来，激发科技好奇与职业畅想，总结课程。</p>
                                     <h4 class="module-section-title"><i class="fas fa-stream"></i> 主要内容探索</h4>
                                     <ul>
-                                        <li>AGI畅想：当AI拥有“超级大脑”</li>
+                                        <li>AGI畅想：当AI拥有"超级大脑"</li>
                                         <li>AI时代的新酷职业 (提示词工程师等)</li>
                                         <li>拥抱AI时代：我的行动计划</li>
                                         <li>AI探险之旅全回顾与证书授予</li>
@@ -723,8 +936,8 @@
                                 <div class="mt-6">
                                     <h4 class="module-section-title"><i class="fas fa-gamepad"></i> 互动体验站</h4>
                                     <ul>
-                                        <li>“我的未来AI职业”创意画/小作文</li>
-                                        <li>“AI如何改变我的家乡”畅想会</li>
+                                        <li>"我的未来AI职业"创意画/小作文</li>
+                                        <li>"AI如何改变我的家乡"畅想会</li>
                                         <li>课程知识回顾：Kahoot!趣味竞赛</li>
                                     </ul>
                                 </div>
@@ -795,7 +1008,7 @@
                         <h3 class="text-lg font-semibold font-sans">《人工智能启蒙（儿童版）》</h3>
                     </div>
                     <p class="text-xs text-muted mb-2 uppercase tracking-wider">编辑推荐</p>
-                    <p class="text-muted text-sm leading-relaxed flex-grow">选择一本国内优质出版社针对小学生编写的AI科普绘本或读物，例如“东方娃娃·给孩子的AI课”系列等。</p>
+                    <p class="text-muted text-sm leading-relaxed flex-grow">选择一本国内优质出版社针对小学生编写的AI科普绘本或读物，例如"东方娃娃·给孩子的AI课"系列等。</p>
                     <a href="https://search.jd.com/Search?keyword=%E5%84%BF%E7%AB%A5%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">去京东看看 <i class="fas fa-arrow-right text-xs ml-1 transform group-hover:translate-x-1 transition-transform"></i></a>
                 </div>
                 <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
@@ -820,7 +1033,7 @@
                      <i class="fas fa-atom text-3xl text-primary mb-4 self-start group-hover:text-accent transition-colors"></i>
                     <h3 class="text-xl font-semibold font-sans">《终极算法》</h3>
                     <p class="text-xs text-muted mb-3 uppercase tracking-wider">作者：佩德罗·多明戈斯</p>
-                    <p class="text-muted text-sm leading-relaxed flex-grow">介绍了机器学习的五大流派及其核心思想，一本书带你理解AI“学习”的本质和未来方向。</p>
+                    <p class="text-muted text-sm leading-relaxed flex-grow">介绍了机器学习的五大流派及其核心思想，一本书带你理解AI"学习"的本质和未来方向。</p>
                     <a href="https://item.jd.com/12291185.html" target="_blank" class="inline-block mt-4 text-sm text-primary hover:text-accent font-medium group-hover:tracking-wider transition-all">去京东看看 <i class="fas fa-arrow-right text-xs ml-1 transform group-hover:translate-x-1 transition-transform"></i></a>
                 </div>
                 <div class="p-6 bg-card rounded-xl shadow-lg interactive-card flex flex-col h-full group">
